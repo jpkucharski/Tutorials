@@ -5,7 +5,7 @@ public class ThreadX
 {
 
     private String id;
-
+    private final int sleepTime = 1000;
 
     public ThreadX( String id )
     {
@@ -24,7 +24,7 @@ public class ThreadX
         System.out.println( "Starting thread No. " + id );
         try
         {
-            Thread.sleep( 1000 );
+            Thread.sleep( sleepTime );
         }
         catch( InterruptedException e )
         {
