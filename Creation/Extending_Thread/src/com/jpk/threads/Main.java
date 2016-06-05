@@ -6,8 +6,8 @@ public class Main
     {
         for( int i = 0; i <= 3; i++ )
         {
-            ThreadX t1 = new ThreadX( Integer.toString( i ) );
-            t1.start();
+            ThreadX threadObject = new ThreadX( Integer.toString( i ) );
+            threadObject.start();
         }
         new ThreadX( "ThreadID" ).start();
     }
