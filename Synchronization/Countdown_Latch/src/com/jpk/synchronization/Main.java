@@ -12,9 +12,9 @@ public class Main
     {
         long startTime = System.currentTimeMillis();
         CountDownLatch latch = new CountDownLatch( 3 );
-        ExecutorService executor = Executors.newFixedThreadPool( 3 );
+        ExecutorService executor = Executors.newFixedThreadPool( 5 );
 
-        for( int i = 0; i < 3; i++ )
+        for( int i = 0; i < 5; i++ )
         {
             Thread thread = new Thread(new ThreadX(latch, i));
             executor.submit( thread );
