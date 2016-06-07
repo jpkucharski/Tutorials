@@ -6,7 +6,7 @@ public class Main
     public static void main( String[] args )
     {
         Variable refToVariableClassObject = new Variable();
-        for( int i = 0; i <= 9; i++ )
+        for( int i = 0; i < 10; i++ )
         {
             Thread thread = createThread( new ThreadX( refToVariableClassObject ) );
             thread.start();

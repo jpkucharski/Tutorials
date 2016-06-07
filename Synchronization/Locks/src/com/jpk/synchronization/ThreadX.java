@@ -1,12 +1,21 @@
 package com.jpk.synchronization;
 
-public class ThreadX implements Runnable
+public class ThreadX
+    implements Runnable
+
 {
+    Variable refToVariableClassObject;
+
+
+    public ThreadX( Variable refToVariableObject )
+    {
+        this.refToVariableClassObject = refToVariableObject;
+    }
+
 
     @Override
     public void run()
     {
-        // TODO Auto-generated method stub  
+        refToVariableClassObject.process();
     }
-
 }

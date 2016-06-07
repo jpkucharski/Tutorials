@@ -15,7 +15,7 @@ public class ThreadX
     @Override
     public void run()
     {
-        for( int i = 0; i <= 9999999; i++ )
+        for( int i = 0; i < 10000000; i++ )
         {
             treadTask(refToVariableObject);
         }
