@@ -12,7 +12,7 @@ public class Main
     {
         ExecutorService executor = Executors.newFixedThreadPool( 5 );
 
-        for( int i = 0; i < 50; i++ )
+        for( int i = 0; i < 10; i++ )
         {
             executor.submit( new ThreadX( i ) );
         }

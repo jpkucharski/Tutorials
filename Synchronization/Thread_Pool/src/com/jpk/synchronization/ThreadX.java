@@ -16,17 +16,16 @@ public class ThreadX implements Runnable
     public void run()
     {
 
-        System.out.println( "Starting new thread with task No.: " + taskId );
+        System.out.println( "Starting new thread, hashCode of thread: "+ this.hashCode()+" with task No.: " + taskId );
         try
         {
             Thread.sleep( 500 );
         }
         catch( InterruptedException e )
         {
-            // TODO Auto-generated catch block
             e.printStackTrace();
         }
-        System.out.println( "Termination of thread with task No. "+ taskId );
+        System.out.println( "Termination of thread, hashCode of thread: "+this.hashCode()+" with task No. "+ taskId );
     }
 
 }
