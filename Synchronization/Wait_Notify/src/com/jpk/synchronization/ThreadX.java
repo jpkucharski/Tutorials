@@ -28,6 +28,7 @@ public class ThreadX
     public void consume()
     {
 
+        @SuppressWarnings( "resource" )
         Scanner scanner = new Scanner( System.in );
         try
         {
