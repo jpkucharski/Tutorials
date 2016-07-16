@@ -1,0 +1,45 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>Rest Example: PUT</title>
+
+<script src="js/jquery-min.js"></script>
+<script src="js/polyfill.js"></script>
+<script src="js/put.js"></script>
+</head>
+<body>
+	<h1>API Employees list:</h1>
+	<div id="get_inventory"></div>
+	<br />
+	<h1>Update Employee E-mail</h1>
+	<form id="put_example" name="put_example" action="#">
+		<table border="1">
+			<tr>
+				<td>Profession</td>
+				<td id="PROFESSION_id_from_webpage"></td>
+			</tr>
+			<tr>
+				<td>Name</td>
+				<td id="NAME_id_from_webpage"></td>
+			</tr>
+			<tr>
+				<td>Old E-mail</td>
+				<td id="EMAIL_id_from_webpage"></td>
+			</tr>
+			<tr>
+				<td>New E-mail</td>
+				<td><input type="text" id="EMAIL_id" name="EMAIL_name"></td>
+			</tr>
+			<tr>
+				<td>Id from database <input type="text" id="ID_id_from_webpage"
+					name="ID_name">
+				</td>
+				<td><input type="submit" value="Submit"></td>
+			</tr>
+		</table>
+	</form>
+	<br />
+	<div id="update_response"></div>
+</body>
+</html>
