@@ -31,9 +31,8 @@ public class TestedClassTests
 
 
     @Test
-    public void testOfConstructor()
+    public void constructorMethod_SetPar1AsStringNAMEPar2ASIntegerNAMBER1Par3AsArrayListLIST1Par4AsBooleanVARIABLE_ExpectedInstanceWithSameParameters()
     {
-
         assertEquals( NAME, testedClass.getName() );
         assertEquals( NAMBER1, testedClass.getNamber() );
         assertEquals( LIST1, testedClass.getList1() );
@@ -42,11 +41,11 @@ public class TestedClassTests
 
 
     @Test
-    public void testisListEmptyMethod_ListSizeIs_1_answerTrue()
+    public void isListEmptyMethod_IntegerAsPar1_ExpectedTrue()
     {
 
         LIST1 = new ArrayList<Integer>();
-        LIST1.add( 1 );
+        LIST1.add( NAMBER1 );
         
         boolean condition = testedClass.isListEmpty( LIST1 );
 
@@ -55,7 +54,7 @@ public class TestedClassTests
 
 
     @Test
-    public void testisListEmptyMethod_ListSizeIs_0_answerFalse()
+    public void isListEmptyMethod_ListSizeSetAs0_ExpectedFalse()
     {
 
         LIST1 = new ArrayList<Integer>();
@@ -68,7 +67,7 @@ public class TestedClassTests
 
 
     @Test
-    public void testOfCreateArrayListMethod_expectedNewArrayList()
+    public void createArrayListMethod_ExpectedArrayListObject()
     {
 
         ArrayList<Integer> expected = new ArrayList<Integer>();
@@ -80,7 +79,7 @@ public class TestedClassTests
 
 
     @Test
-    public void testOfAdditionMethod_RetyrningSumOfVariableXandVariableY()
+    public void AdditionMethod_Param1AndParam2SetAsIntegers_ExpectedSumOfPar1AndPar2()
     {
 
         int expected = VARIABLE_X + VARIABLE_Y;
@@ -91,7 +90,7 @@ public class TestedClassTests
 
 
     @Test
-    public void nameGeterTestReturningNAME()
+    public void nameGeter_StringSetAsPar1_ExpectedPar1()
     {
 
         testedClass.setName( NAME );
@@ -104,7 +103,7 @@ public class TestedClassTests
 
     
    @Test 
-   public void testOfaddValueToArrayListMethod_expectedArrayListSize_1(){
+   public void addValueToArrayListMethod_Par1AsTargetListPar2AsInteger_ExpectedArrayListSize1(){
        
        testedClass.setList1( new ArrayList<Integer>() );
        testedClass.addValueToArrayList( testedClass.getList1(), NAMBER1 );
@@ -115,7 +114,7 @@ public class TestedClassTests
        assertEquals( expected, actual );
    }
    @Test 
-   public void testSetGetVariable1_expectedTrue(){
+   public void setGetVariable1Method_VariableSetAsTrue_expectedTrue(){
    
        testedClass.setVariable1( true );
        
@@ -127,7 +126,7 @@ public class TestedClassTests
    }
    
    @Test 
-   public void testSetGetNamber_expectedNAMBER1value(){
+   public void setGetNamberMethod_SetAsIntegerPar1_ExpectedIntegerPar1(){
    
        testedClass.setNamber( NAMBER1 );
        
@@ -138,10 +137,9 @@ public class TestedClassTests
       
    }
    @Test
-   public void testOfaaddingLoopMethod_expectedSizeOfList_LIST_SIZEvalue(){
+   public void aaddingLoopMethod_SetPar1AsNewArrayListSetPar2AsLIST_SIZE_ExpectedListSizeAsLIST_SIZE(){
        
-       ArrayList<Integer> list = new ArrayList<Integer>();
-//       testedClass.aaddingLoop( list, LIST_SIZE );
+       ArrayList<Integer> list = new ArrayList<Integer>(); 
        
        int expected = LIST_SIZE;
        int actual = testedClass.aaddingLoop( list, LIST_SIZE ).size();
