@@ -4,6 +4,7 @@ import java.io.IOException;
 
 public class Worker {
   private static final String TASK_QUEUE_NAME = "task_queue";
+  private static final String TASK_QUEUE_NAME_1 = "task_queue_1";
 
   public static void main(String[] argv) throws Exception {
     ConnectionFactory factory = new ConnectionFactory();
