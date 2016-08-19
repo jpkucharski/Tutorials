@@ -7,33 +7,33 @@ import com.rabbitmq.client.Channel;
 
 public class EmitLogTopic
 {
-
-    private static final String EXCHANGE_NAME = "EXCHANGE_NAME_FOR_TOPIC";
-    private static final String ROUTING_KEY = "ROUTING_KEY_NAME_1";
-    private static final String TEST_MESSAGE_TEXT = "TEST_MESSAGE_1_FROM_TOPIC_EMITER";
+    private static final String EXCHANGE_NAME = "topic_logs";
     private static int counter = 0;
+    private static int swich = 1;
 
 
     public static void main( String[] argv ) throws InterruptedException
     {
         Connection connection = null;
         Channel channel = null;
-
-        ConnectionFactory factory = new ConnectionFactory();
-        factory.setHost( "localhost" );
+        String[] routingTable = { "lazy", "quick.orange.rabbit", "leazy.pink.elephant" };
         while( true )
         {
             try
             {
+                ConnectionFactory factory = new ConnectionFactory();
+                factory.setHost( "localhost" );
                 connection = factory.newConnection();
-
                 channel = connection.createChannel();
-
                 channel.exchangeDeclare( EXCHANGE_NAME, "topic" );
-                String message = TEST_MESSAGE_TEXT + "_" + counter;
 
-                channel.basicPublish( EXCHANGE_NAME, ROUTING_KEY, null, message.getBytes( "UTF-8" ) );
-                System.out.println( " [x] Sent '" + ROUTING_KEY + "':'" + message + "'" );
+                String routingKey = getRouting( routingTable );
+                String message = "Routing key: " + routingKey + " ,Topic_Test_Message_No: " + counter;
+
+                channel.basicPublish( EXCHANGE_NAME, routingKey, null, message.getBytes( "UTF-8" ) );
+                System.out.println( " [x] Sent '" + routingKey + "':'" + message + "'" );
+
+                channel.close();
             }
             catch( Exception e )
             {
@@ -51,9 +51,34 @@ public class EmitLogTopic
                     {
                     }
                 }
-                counter++;
-                Thread.sleep( 500 );
             }
+            counter++;
+            swich++;
+            Thread.sleep( 500 );
         }
+    }
+
+
+    private static String getRouting( String[] strings )
+    {
+        String actualRoutingKey = null;
+
+        if( swich == 4 )
+        {
+            swich = 1;
+        }
+        if( swich == 1 )
+        {
+            actualRoutingKey = strings[0];
+        }
+        if( swich == 2 )
+        {
+            actualRoutingKey = strings[1];
+        }
+        if( swich == 3 )
+        {
+            actualRoutingKey = strings[2];
+        }
+        return actualRoutingKey;
     }
 }
