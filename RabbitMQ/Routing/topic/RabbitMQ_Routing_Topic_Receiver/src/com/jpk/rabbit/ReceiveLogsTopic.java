@@ -6,8 +6,7 @@ import java.io.IOException;
 
 public class ReceiveLogsTopic {
 
-  private static final String EXCHANGE_NAME = "EXCHANGE_NAME_FOR_TOPIC";
-  private static final String ROUTING_KEY = "ROUTING_KEY_NAME_1";
+  private static final String EXCHANGE_NAME = "topic_logs";
 
   public static void main(String[] argv) throws Exception {
     ConnectionFactory factory = new ConnectionFactory();
@@ -17,7 +16,17 @@ public class ReceiveLogsTopic {
 
     channel.exchangeDeclare(EXCHANGE_NAME, "topic");
     String queueName = channel.queueDeclare().getQueue();
-    channel.queueBind(queueName, EXCHANGE_NAME, ROUTING_KEY);
+
+    String[] bindingKeyTable = {"*.*.rabbit","lazy.#"};
+
+    if (bindingKeyTable.length < 1) {
+      System.err.println("Usage: ReceiveLogsTopic [binding_key]...");
+      System.exit(1);
+    }
+    
+    for (String bindingKey : bindingKeyTable) {
+      channel.queueBind(queueName, EXCHANGE_NAME, bindingKey);
+    }
 
     System.out.println(" [*] Waiting for messages. To exit press CTRL+C");
 
