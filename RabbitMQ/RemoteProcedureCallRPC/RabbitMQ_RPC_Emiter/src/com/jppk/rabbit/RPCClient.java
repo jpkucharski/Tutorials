@@ -4,7 +4,6 @@ import com.rabbitmq.client.ConnectionFactory;
 import com.rabbitmq.client.Connection;
 import com.rabbitmq.client.Channel;
 import com.rabbitmq.client.QueueingConsumer;
-import com.sun.xml.internal.bind.v2.runtime.RuntimeUtil.ToStringAdapter;
 import com.rabbitmq.client.AMQP.BasicProperties;
 import java.util.UUID;
 
@@ -15,7 +14,6 @@ public class RPCClient {
   private String requestQueueName = "rpc_queue";
   private String replyQueueName;
   private QueueingConsumer consumer;
-  
 
   public RPCClient() throws Exception {
     ConnectionFactory factory = new ConnectionFactory();
@@ -47,7 +45,6 @@ public class RPCClient {
         break;
       }
     }
-
     return response;
   }
 
@@ -77,9 +74,5 @@ public class RPCClient {
         catch (Exception ignore) {}
       }
     }
-    
-   
-    
   }
 }
-
