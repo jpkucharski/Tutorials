@@ -13,9 +13,7 @@ public class RPCServer
 {
 
     private static final String RPC_QUEUE_NAME = "rpc_queue";
-
-    private static String[] custommers = { "Peter", "Alex", "Megan", "Tom", "Loreane" };
-
+    private static String[] custommers = { "Peter", "Alex", "Megan", "Tom", "Lorraine" };
 
     private static boolean membership( String member )
     {
@@ -29,9 +27,7 @@ public class RPCServer
            };
         }
         return membership;
-
     }
-
 
     public static void main( String[] argv )
     {
@@ -69,9 +65,7 @@ public class RPCServer
                     String message = new String( delivery.getBody(), "UTF-8" );
                     boolean responceToClient = membership(message);
                     
-                    
-                    System.out.println( " [.]" + " Is "+message +" a member? "+responceToClient + "  /   Queue neme: "+ props.getReplyTo());
-                    
+                    System.out.println( " [.]" + " Is "+message +" a member? "+responceToClient);
 
                     response = "If you are a member? Answer is: " + responceToClient;
                 }
