@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+
+	<bean id="basicMessageOfDay" class="com.jpk.spring1.service.BasicMessageOfTheDayImpl">
+		<property name="message" value="Helo Spring from the Peter." />
+	</bean>
+
+	<bean id="printer" class="com.jpk.spring1.service.MessagePrinter">
+		<constructor-arg index="0" value="My Printer Service"></constructor-arg>
+		<constructor-arg index="1" value="_>>_"></constructor-arg>
+		<constructor-arg index="2" ref="basicMessageOfDay"></constructor-arg>
+	</bean>
+
+
+
+</beans>
