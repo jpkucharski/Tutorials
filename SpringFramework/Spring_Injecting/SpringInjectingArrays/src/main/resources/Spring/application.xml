@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.3.xsd">
+
+
+	<!-- <bean id="basicMessageOfDay" class="com.jpk.spring1.service.BasicMessageOfTheDayImpl"> -->
+	<!-- <property name="message" value="Hello Spring from Peter Arrays :P" 
+		/> -->
+	<!-- </bean> -->
+	<!-- <bean id="dynamicMessageOfDay" class="com.jpk.spring1.service.DynamicMessageOfTheDayImpl"> -->
+	<!-- <property name="messagesArray"> -->
+	<!-- <array> -->
+	<!-- <value>"Sunday message!"</value> -->
+	<!-- <value>"Monday message!"</value> -->
+	<!-- <value>"Tuesday message!"</value> -->
+	<!-- <value>"Wednesday message!"</value> -->
+	<!-- <value>"Thursday message!"</value> -->
+	<!-- <value>"Friday message!"</value> -->
+	<!-- <value>"Saturday message!"</value> -->
+	<!-- </array> -->
+
+	<!-- </property> -->
+
+	<!-- </bean> -->
+
+	<!-- <bean id="dynamicMessageOfDay" class="com.jpk.spring1.service.DynamicMessageOfTheDayImpl"> -->
+	<!-- <property name="messageValueList"> -->
+	<!-- <array> -->
+	<!-- <ref bean="1" /> -->
+	<!-- <ref bean="2" /> -->
+	<!-- <ref bean="3" /> -->
+	<!-- <ref bean="4" /> -->
+	<!-- <ref bean="5" /> -->
+	<!-- <ref bean="6" /> -->
+	<!-- <ref bean="7" /> -->
+	<!-- </array> -->
+	<!-- </property> -->
+	<!-- </bean> -->
+
+<!-- 	<bean id="dynamicMessageOfDay" class="com.jpk.spring1.service.DynamicMessageOfTheDayImpl"> -->
+<!-- 		<property name="messageMap"> -->
+<!-- 			<map> -->
+<!-- 				<entry key="1" value="Sunday morning Message from Map." /> -->
+<!-- 				<entry key="2" value="Monday morning Message from Map." /> -->
+<!-- 				<entry key="3" value="Tuesday morning Message from Map." /> -->
+<!-- 				<entry key="4" value="Wednsday morning Message from Map." /> -->
+<!-- 				<entry key="5" value="Thursday morning Message from Map." /> -->
+<!-- 				<entry key="6" value="Friday morning Message from Map." /> -->
+<!-- 				<entry key="7" value="Saturday morning Message from Map." /> -->
+<!-- 			</map> -->
+<!-- 		</property> -->
+<!-- 	</bean> -->
+	
+	<bean id="dynamicMessageOfDay" class="com.jpk.spring1.service.DynamicMessageOfTheDayImpl">
+		<property name="messageValueMap">
+			<map>
+				<entry key="1" value-ref="1" />
+				<entry key="2" value-ref="2" />
+				<entry key="3" value-ref="3" />
+				<entry key="4" value-ref="4" />
+				<entry key="5" value-ref="5" />
+				<entry key="6" value-ref="6" />
+				<entry key="7" value-ref="7" />
+			</map>
+		</property>
+	</bean>
+
+
+	<bean id="printer" class="com.jpk.spring1.service.MessagePrinter">
+		<constructor-arg index="0" value="My Printer Service" />
+		<constructor-arg index="1" value="_>>_" />
+		<constructor-arg index="2" ref="dynamicMessageOfDay" />
+	</bean>
+
+	<bean id="1" class="com.jpk.spring1.model.MessageValue">
+		<constructor-arg value="Sunday morning message! from ref in bean" />
+	</bean>
+
+	<bean id="2" class="com.jpk.spring1.model.MessageValue">
+		<constructor-arg value="Monday morning message! from ref in bean" />
+	</bean>
+
+	<bean id="3" class="com.jpk.spring1.model.MessageValue">
+		<constructor-arg value="Tuesday morning message! from ref in bean" />
+	</bean>
+
+	<bean id="4" class="com.jpk.spring1.model.MessageValue">
+		<constructor-arg value="Wednesday morning message! in ref in bean" />
+	</bean>
+
+	<bean id="5" class="com.jpk.spring1.model.MessageValue">
+		<constructor-arg value="Thursday morning message! from ref in bean" />
+	</bean>
+
+	<bean id="6" class="com.jpk.spring1.model.MessageValue">
+		<constructor-arg value="Fridey morning message! from ref in bean" />
+	</bean>
+
+	<bean id="7" class="com.jpk.spring1.model.MessageValue">
+		<constructor-arg value="Saturday morning message! from ref in bean" />
+	</bean>
+
+</beans>
