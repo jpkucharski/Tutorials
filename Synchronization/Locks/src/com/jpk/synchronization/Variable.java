@@ -55,6 +55,7 @@ public class Variable
         synchronized( lock1 )
         {
             list1.add( random.nextInt( 100 ) );
+            System.out.println( "Method1: " +Thread.currentThread().getName() );
             try
             {
                 Thread.sleep( 1 );
@@ -72,6 +73,7 @@ public class Variable
         synchronized( lock2 )
         {
             list2.add( random.nextInt( 100 ) );
+            System.out.println( "Method2: " +Thread.currentThread().getName() );
             try
             {
                 Thread.sleep( 1 );
